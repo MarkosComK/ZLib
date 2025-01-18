@@ -1,5 +1,3 @@
-const zlib = @import("char.zig");
-
 pub fn toUpper(c: u8) u8 {
     if (c <= 'z' and c >= 'a') {
         return (c - 32);
