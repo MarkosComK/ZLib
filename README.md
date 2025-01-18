@@ -7,7 +7,8 @@ The goal is to learn the basics of the language while building my own ZLib.
 ...
 
 ## Why Zig?
-First, why not? Second, well... its nice to say - Zig - that's it.
+First - why not?
+Second - well... its nice to say - Zig - that's it.
 
 ## Project Status
 
