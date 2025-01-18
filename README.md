@@ -21,7 +21,7 @@ First, why not? Second, well... its nice to say - Zig - that's it.
 - ✅ `isAscii` - Check if character is ASCII
 - ✅ `isPrint` - Check if character is printable
 - ✅ `toUpper` - Convert to uppercase
-- ❌ `toLower` - Convert to lowercase
+- ✅ `toLower` - Convert to lowercase
 
 ### String Operations
 - ❌ `strLen` - Get string length
