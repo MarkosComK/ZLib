@@ -25,7 +25,7 @@ First, why not? Second, well... its nice to say - Zig - that's it.
 
 ### String Operations
 - ✅ `strLen` - Get string length
-- ❌ `strCpy` - Copy string
+- ✅ `strCpy` - Copy string
 - ❌ `strCat` - Concatenate strings
 - ❌ `strCmp` - Compare strings
 - ❌ `strChr` - Find character in string
