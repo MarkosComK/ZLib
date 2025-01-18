@@ -41,7 +41,7 @@ pub fn main() void {
     const char_pos_r = zib.str.strRChr(str1, char_to_find);
     std.debug.print("strRChr('{s}', '{c}'): {?}\n", .{ str1, char_to_find, char_pos_r });
 
-    //const substr = "lo";
-    //const substr_pos = zlib.str.strStr(str1, substr);
-    //std.debug.print("strStr('{s}', '{s}'): {?}\n", .{ str1, substr, substr_pos });
+    const substr = "lo";
+    const substr_pos = zib.str.strStr(str1, substr);
+    std.debug.print("strStr('{s}', '{s}'): {?}\n", .{ str1, substr, substr_pos });
 }
