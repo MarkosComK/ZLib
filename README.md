@@ -18,7 +18,7 @@ First, why not? Second, well... its nice to say - Zig - that's it.
 - ✅ `isAlpha` - Check if character is alphabetic
 - ✅ `isDigit` - Check if character is a digit
 - ✅ `isAlNum` - Check if character is alphanumeric
-- ❌ `isAscii` - Check if character is ASCII
+- ✅ `isAscii` - Check if character is ASCII
 - ❌ `isPrint` - Check if character is printable
 - ❌ `toUpper` - Convert to uppercase
 - ❌ `toLower` - Convert to lowercase
