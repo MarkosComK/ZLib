@@ -15,7 +15,7 @@ First, why not? Second, well... its nice to say - Zig - that's it.
 🚧 = In progress
 
 ### Character Functions
-- ❌ `isAlpha` - Check if character is alphabetic
+- ✅ `isAlpha` - Check if character is alphabetic
 - ❌ `isDigit` - Check if character is a digit
 - ❌ `isAlNum` - Check if character is alphanumeric
 - ❌ `isAscii` - Check if character is ASCII
