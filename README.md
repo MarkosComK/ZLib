@@ -29,8 +29,8 @@ Second - well... its nice to say - Zig - that's it.
 - ✅ `strCpy` - Copy string
 - ✅ `strCat` - Concatenate strings
 - ✅ `strCmp` - Compare strings
-- ❌ `strChr` - Find character in string
-- ❌ `strRChr` - Find character from end of string
+- ✅ `strChr` - Find character in string
+- ✅ `strRChr` - Find character from end of string
 - ❌ `strStr` - Find substring
 
 ### Math Operations
