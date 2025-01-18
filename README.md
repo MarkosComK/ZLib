@@ -31,7 +31,7 @@ Second - well... its nice to say - Zig - that's it.
 - ✅ `strCmp` - Compare strings
 - ✅ `strChr` - Find character in string
 - ✅ `strRChr` - Find character from end of string
-- ❌ `strStr` - Find substring
+- ✅ `strStr` - Find substring
 
 ### Math Operations
 - ❌ pow - Power function
