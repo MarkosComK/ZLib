@@ -1,6 +1,6 @@
 # Zig Library
 
-The Zag library (cool name, isn't?) reimplements common functions, inspired by [libft](https://github.com/MarkosComK/42-Libft).
+The Zib library (cool name, isn't?) reimplements common functions, inspired by [libft](https://github.com/MarkosComK/42-Libft).
 
 The goal is to learn the basics of the language while building my own ZLib.
 

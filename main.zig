@@ -1,4 +1,4 @@
-const zlib = @import("zlib.zig");
+const zlib = @import("zib.zig");
 const std = @import("std");
 
 pub fn main() void {
@@ -31,8 +31,8 @@ pub fn main() void {
     _ = zlib.str.strCat(&buffer, str2);
     std.debug.print("strCat result: '{s}'\n", .{buffer});
 
-    //std.debug.print("strCmp('Hello', 'Hello'): {}\n", .{zlib.str.strCmp("Hello", "Hello")});
-    //std.debug.print("strCmp('Hello', 'World'): {}\n", .{zlib.str.strCmp("Hello", "World")});
+    std.debug.print("strCmp('Hello', 'Hello'): {}\n", .{zlib.str.strCmp("Hello", "Hello")});
+    std.debug.print("strCmp('Hello', 'World'): {}\n", .{zlib.str.strCmp("Hello", "World")});
 
     //const char_to_find = 'o';
     //const char_pos = zlib.str.strChr(str1, char_to_find);
