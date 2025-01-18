@@ -24,7 +24,7 @@ First, why not? Second, well... its nice to say - Zig - that's it.
 - ✅ `toLower` - Convert to lowercase
 
 ### String Operations
-- ❌ `strLen` - Get string length
+- ✅ `strLen` - Get string length
 - ❌ `strCpy` - Copy string
 - ❌ `strCat` - Concatenate strings
 - ❌ `strCmp` - Compare strings
