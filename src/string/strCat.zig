@@ -1,5 +1,4 @@
 const zlib = @import("string.zig");
-const std = @import("std");
 
 pub fn strCat(s1: []u8, s2: []const u8) []u8 {
     var i: u8 = zlib.strLen(s1);
