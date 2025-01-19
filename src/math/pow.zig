@@ -10,6 +10,20 @@
 // |___________________________________________________________________________|
 //==============================================================================
 
-pub fn pow(i: u8) u8 {
+pub fn pow(base: i32, exp: u32) i32 {
+    if (exp == 0) return 1;
 
+    var result: i32 = 1;
+    var current_base = base;
+    var current_exp = exp;
+
+    while (true) {
+        if (current_exp & 1 == 1) {
+            result *= current_base;
+        }
+        current_exp >>= 1;
+        if (current_exp == 0) break;
+        current_base *= current_base;
+    }
+    return result;
 }
