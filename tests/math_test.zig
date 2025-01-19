@@ -1,14 +1,8 @@
 const std = @import("std");
 const zib = @import("zib");
 const Color = @import("main_test.zig").Color;
+const printTestResult = @import("main_test.zig").printTestResult;
 const testing = std.testing;
-
-fn printTestResult(comptime format: []const u8, test_name: []const u8, expected: anytype, actual: anytype, passed: bool) void {
-    const status = if (passed) Color.GREEN ++ "PASS" ++ Color.RESET else Color.RED ++ "FAIL" ++ Color.RESET;
-    std.debug.print("{s:^12} | {s:<0} Expected: | " ++ Color.YELLOW ++ format ++ Color.RESET ++
-        " | Actual: | " ++ Color.GREEN ++ format ++ Color.RESET ++
-        " | {s}\n", .{ test_name, "", expected, actual, status });
-}
 
 test "Math Function Tests" {
     std.debug.print("\n{s}{s:^60}{s}\n\n", .{ Color.BLUE, "===== Math Function Tests =====", Color.RESET });
