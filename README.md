@@ -13,6 +13,7 @@ The goal is to learn the basics of the language while building my own ZLib.
   - [Memory Operations](#memory-operations)
   - [Cast Functions](#cast-functions)
   - [List Operations](#list-operations)
+- [Docs](#docs)
 - [Building](#building)
 - [Testing](#testing)
 - [Usage](#usage)
@@ -79,13 +80,17 @@ Second - well... its nice to say - Zig - that's it.
 - ❌ `listRemove` - Remove element
 - ❌ `listClear` - Clear list
 
+## Docs
+you can visit the docs here, but they're still in progress...
+[ZibDocs](https://markoscomk.github.io/Zib/).
+
 ## Building
 
 ```bash
 # this will generate a static lib (libzib.a) using the zib build system
 # for more information read the comments in ./build.zig
 git clone git@github.com:MarkosComK/Zib.git &&
-cd zib &&
+cd Zib &&
 zig build
 ```
 
