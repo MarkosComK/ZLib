@@ -33,6 +33,7 @@ Second - well... its nice to say - Zig - that's it.
 - ✅ `strChr` - Find character in string
 - ✅ `strRChr` - Find character from end of string
 - ✅ `strStr` - Find substring
+- ✅ `strDup` - Duplicate a string
 
 ### Math Operations
 - ✅ pow - Power function

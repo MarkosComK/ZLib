@@ -3,22 +3,19 @@
 // |                                                                           |
 // | ███████╗██╗██████╗  ────────── ZIB LIBRARY ────────                       |
 // | ╚══███╔╝██║██╔══██╗                                                       |
-// |   ███╔╝ ██║██████╔╝  Created: 2025-01-19 12:41:10                         |
-// |  ███╔╝  ██║██╔══██╗  Last Updated: 2025-01-19 13:20:19                    |
+// |   ███╔╝ ██║██████╔╝  Created: 2025-01-19 18:25:10                         |
+// |  ███╔╝  ██║██╔══██╗  Last Updated: 2025-01-19 18:25:19                    |
 // | ███████╗██║██████╔╝                                                       |
 // | ╚══════╝╚═╝╚═════╝                                                        |
 // |___________________________________________________________________________|
 //==============================================================================
 
-//char------------------------------------------------------------------------//
-pub const char = @import("../char/char.zig");
+const Allocator = @import("std").mem.Allocator;
+const strLen = @import("../string/strLen.zig").strLen;
+const strCpy = @import("../string/strCpy.zig").strCpy;
 
-//String---------------------------------------------------------------------//
-pub const strLen = @import("strLen.zig").strLen;
-pub const strCpy = @import("strCpy.zig").strCpy;
-pub const strCat = @import("strCat.zig").strCat;
-pub const strCmp = @import("strCmp.zig").strCmp;
-pub const strChr = @import("strChr.zig").strChr;
-pub const strRChr = @import("strRChr.zig").strRChr;
-pub const strStr = @import("strStr.zig").strStr;
-pub const strDup = @import("strDup.zig").strDup;
+pub fn strDup(allocator: Allocator, str: []const u8) ![]u8 {
+    var dup: []u8 = try allocator.alloc(u8, strLen(str));
+    dup = strCpy(dup, str);
+    return dup;
+}
