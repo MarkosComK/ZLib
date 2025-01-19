@@ -11,3 +11,4 @@
 //==============================================================================
 
 pub const pow = @import("pow.zig").pow;
+pub const sqrt = @import("sqrt.zig").sqrt;

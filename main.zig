@@ -54,12 +54,12 @@ pub fn main() void {
     std.debug.print("pow(2, 3): {}\n", .{zib.math.pow(2, 3)}); // Should be 8
     std.debug.print("pow(5, 0): {}\n", .{zib.math.pow(5, 0)}); // Should be 1
     std.debug.print("pow(-2, 3): {}\n", .{zib.math.pow(-2, 3)}); // Should be -8
-    //
-    // // Square root tests
-    // std.debug.print("\nSquare Root Tests:\n", .{});
-    // std.debug.print("sqrt(16): {}\n", .{zib.math.sqrt(16)});      // Should be 4
-    // std.debug.print("sqrt(2): {}\n", .{zib.math.sqrt(2)});        // Should be ~1.414
-    // std.debug.print("sqrt(0): {}\n", .{zib.math.sqrt(0)});        // Should be 0
+
+    // Square root tests
+    std.debug.print("\nSquare Root Tests:\n", .{});
+    std.debug.print("sqrt(16): {}\n", .{zib.math.sqrt(16)}); // Should be 4
+    std.debug.print("sqrt(2): {}\n", .{zib.math.sqrt(2)}); // Should be ~1.414
+    std.debug.print("sqrt(0): {}\n", .{zib.math.sqrt(0)}); // Should be 0
     //
     // // Absolute value tests
     // std.debug.print("\nAbsolute Value Tests:\n", .{});
