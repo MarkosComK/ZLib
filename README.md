@@ -4,7 +4,21 @@ The Zib library (cool name, isn't?) reimplements common functions, inspired by [
 
 The goal is to learn the basics of the language while building my own ZLib.
 
-...
+## Table of Contents
+- [Why Zig?](#why-zig)
+- [Project Status](#project-status)
+  - [Character Functions](#character-functions)
+  - [String Operations](#string-operations)
+  - [Math Operations](#math-operations)
+  - [Memory Operations](#memory-operations)
+  - [Cast Functions](#cast-functions)
+  - [List Operations](#list-operations)
+- [Building](#building)
+- [Testing](#testing)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Resources](#resources)
+- [License](#license)
 
 ## Why Zig?
 First - why not?
@@ -68,22 +82,25 @@ Second - well... its nice to say - Zig - that's it.
 ## Building
 
 ```bash
-git clone <come back later, bruh>
-cd zib
+# this will generate a static lib (libzib.a) using the zib build system
+# for more information read the comments in ./build.zig
+git clone git@github.com:MarkosComK/Zib.git &&
+cd zib &&
 zig build
 ```
 
 ## Testing
 
 ```bash
-zig <again... come back later!>
+#tests can be found in ./tests
+zig build test
 ```
 
 ## Usage
 
 ```zig
-//A.I generated cause i have no idea how to write code in this
-//lang. Or any other too...
+// You can check an example in src/main.zig for import the lib
+// properly with @import("zib") see the ./build.zig
 const std = @import("std");
 const zib = @import("zib");
 
