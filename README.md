@@ -36,7 +36,7 @@ Second - well... its nice to say - Zig - that's it.
 ### Math Operations
 - ✅ pow - Power function
 - ❌ sqrt - Square root
-- ❌ abs - Absolute value
+- ✅ abs - Absolute value
 - ❌ factorial - Factorial calculation
 - ❌ fibonacci - Fibonacci sequence
 - ❌ gcd - Greatest common divisor

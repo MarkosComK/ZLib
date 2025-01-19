@@ -61,11 +61,11 @@ pub fn main() void {
     std.debug.print("sqrt(2): {}\n", .{zib.math.sqrt(2)}); // Should be ~1.414
     std.debug.print("sqrt(0): {}\n", .{zib.math.sqrt(0)}); // Should be 0
     //
-    // // Absolute value tests
-    // std.debug.print("\nAbsolute Value Tests:\n", .{});
-    // std.debug.print("abs(-42): {}\n", .{zib.math.abs(-42)});      // Should be 42
-    // std.debug.print("abs(42): {}\n", .{zib.math.abs(42)});        // Should be 42
-    // std.debug.print("abs(0): {}\n", .{zib.math.abs(0)});          // Should be 0
+    // Absolute value tests
+    std.debug.print("\nAbsolute Value Tests:\n", .{});
+    std.debug.print("abs(-42): {}\n", .{zib.math.abs(-42)}); // Should be 42
+    std.debug.print("abs(42): {}\n", .{zib.math.abs(42)}); // Should be 42
+    std.debug.print("abs(0): {}\n", .{zib.math.abs(0)}); // Should be 0
     //
     // // Factorial tests
     // std.debug.print("\nFactorial Tests:\n", .{});
