@@ -37,7 +37,7 @@ Second - well... its nice to say - Zig - that's it.
 - ✅ pow - Power function
 - ❌ sqrt - Square root
 - ✅ abs - Absolute value
-- ❌ factorial - Factorial calculation
+- ✅ factorial - Factorial calculation
 - ❌ fibonacci - Fibonacci sequence
 - ❌ gcd - Greatest common divisor
 - ❌ isPrime - Prime number check

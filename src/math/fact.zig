@@ -3,14 +3,23 @@
 // |                                                                           |
 // | ███████╗██╗██████╗  ────────── ZIB LIBRARY ────────                       |
 // | ╚══███╔╝██║██╔══██╗                                                       |
-// |   ███╔╝ ██║██████╔╝  Created: 2025-01-19 12:41:10                         |
+// |   ███╔╝ ██║██████╔╝  Created: 2025-01-19 15:03:15                         |
 // |  ███╔╝  ██║██╔══██╗  Last Updated: 2025-01-19 15:03:15                    |
 // | ███████╗██║██████╔╝                                                       |
 // | ╚══════╝╚═╝╚═════╝                                                        |
 // |___________________________________________________________________________|
 //==============================================================================
 
-pub const pow = @import("pow.zig").pow;
-pub const sqrt = @import("sqrt.zig").sqrt;
-pub const abs = @import("abs.zig").abs;
-pub const fact = @import("fact.zig").fact;
+const print = @import("std").debug.print;
+
+pub fn fact(n: u16) u64 {
+    if (n == 0) return 1;
+
+    var res: u64 = 1;
+    var num: u16 = n;
+
+    while (num > 1) : (num -= 1) {
+        res *= num;
+    }
+    return res;
+}

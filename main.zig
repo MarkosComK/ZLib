@@ -67,11 +67,11 @@ pub fn main() void {
     std.debug.print("abs(42): {}\n", .{zib.math.abs(42)}); // Should be 42
     std.debug.print("abs(0): {}\n", .{zib.math.abs(0)}); // Should be 0
     //
-    // // Factorial tests
-    // std.debug.print("\nFactorial Tests:\n", .{});
-    // std.debug.print("factorial(5): {}\n", .{zib.math.factorial(5)});   // Should be 120
-    // std.debug.print("factorial(0): {}\n", .{zib.math.factorial(0)});   // Should be 1
-    // std.debug.print("factorial(1): {}\n", .{zib.math.factorial(1)});   // Should be 1
+    // Factorial tests
+    std.debug.print("\nFactorial Tests:\n", .{});
+    std.debug.print("factorial(5): {}\n", .{zib.math.fact(5)}); // Should be 120
+    std.debug.print("factorial(0): {}\n", .{zib.math.fact(0)}); // Should be 1
+    std.debug.print("factorial(1): {}\n", .{zib.math.fact(1)}); // Should be 1
     //
     // // Fibonacci tests
     // std.debug.print("\nFibonacci Tests:\n", .{});
