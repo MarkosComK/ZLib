@@ -53,8 +53,8 @@ Second - well... its nice to say - Zig - that's it.
 - ❌ `memCmp` - Compare memory
 - ❌ `memChr` - Find byte in memory
 
-### Conversion Functions
-- ❌ `atoi` - Convert ASCII to integer
+### Cast Functions
+- ✅ `atoi` - Convert ASCII to integer
 - ❌ `itoa` - Convert integer to ASCII
 
 ### List Operations
