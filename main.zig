@@ -73,11 +73,13 @@ pub fn main() void {
     std.debug.print("factorial(0): {}\n", .{zib.math.fact(0)}); // Should be 1
     std.debug.print("factorial(1): {}\n", .{zib.math.fact(1)}); // Should be 1
     //
-    // // Fibonacci tests
-    // std.debug.print("\nFibonacci Tests:\n", .{});
-    // std.debug.print("fibonacci(0): {}\n", .{zib.math.fibonacci(0)});   // Should be 0
-    // std.debug.print("fibonacci(1): {}\n", .{zib.math.fibonacci(1)});   // Should be 1
-    // std.debug.print("fibonacci(10): {}\n", .{zib.math.fibonacci(10)}); // Should be 55
+    // Fibonacci tests
+    std.debug.print("\nFibonacci Tests:\n", .{});
+    std.debug.print("fibonacci(0): {}\n", .{zib.math.fibo(0)}); // Should be 0
+    std.debug.print("fibonacci(1): {}\n", .{zib.math.fibo(1)}); // Should be 1
+    std.debug.print("fibonacci(5): {}\n", .{zib.math.fibo(5)}); // Should be
+    std.debug.print("fibonacci(7): {}\n", .{zib.math.fibo(7)}); // Should be
+    std.debug.print("fibonacci(10): {}\n", .{zib.math.fibo(10)}); // Should be 55
     //
     // // GCD tests
     // std.debug.print("\nGCD Tests:\n", .{});

@@ -14,3 +14,4 @@ pub const pow = @import("pow.zig").pow;
 pub const sqrt = @import("sqrt.zig").sqrt;
 pub const abs = @import("abs.zig").abs;
 pub const fact = @import("fact.zig").fact;
+pub const fibo = @import("fibo.zig").fibo;

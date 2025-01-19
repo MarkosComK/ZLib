@@ -38,7 +38,7 @@ Second - well... its nice to say - Zig - that's it.
 - ❌ sqrt - Square root
 - ✅ abs - Absolute value
 - ✅ fact - Factorial calculation
-- ❌ fibo - Fibonacci sequence
+- ✅ fibo - Fibonacci sequence
 - ❌ gcd - Greatest common divisor
 - ❌ isPrime - Prime number check
 - ❌ nextPrime - Find next prime
