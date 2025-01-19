@@ -14,3 +14,4 @@
 pub const char = @import("src/char/char.zig");
 pub const str = @import("src/string/string.zig");
 pub const math = @import("src/math/math.zig");
+pub const cast = @import("src/cast/cast.zig");

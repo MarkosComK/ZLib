@@ -113,4 +113,11 @@ pub fn main() void {
     // std.debug.print("lcm(15, 20): {}\n", .{zib.math.lcm(15, 20)});    // Should be 60
     // std.debug.print("lcm(12, 18): {}\n", .{zib.math.lcm(12, 18)});    // Should be 36
     // std.debug.print("lcm(7, 13): {}\n", .{zib.math.lcm(7, 13)});      // Should be 91
+
+    // Cast
+    // atoi tests
+    std.debug.print("\nAtoi Tests:\n", .{});
+    std.debug.print("atoi('123'): {}\n", .{zib.cast.atoi("123")}); // Should be 60
+    std.debug.print("atoi('-123'): {}\n", .{zib.cast.atoi("-123")}); // Should be 36
+    std.debug.print("atoi('   --+563a2'): {}\n", .{zib.cast.atoi("    --+563a2")}); // Should be 91
 }
