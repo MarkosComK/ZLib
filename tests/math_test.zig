@@ -1,14 +1,7 @@
 const std = @import("std");
 const zib = @import("zib");
+const Color = @import("main_test.zig").Color;
 const testing = std.testing;
-
-const Color = struct {
-    const RED = "\x1b[31m";
-    const GREEN = "\x1b[32m";
-    const YELLOW = "\x1b[33m";
-    const BLUE = "\x1b[34m";
-    const RESET = "\x1b[0m";
-};
 
 fn printTestResult(comptime format: []const u8, test_name: []const u8, expected: anytype, actual: anytype, passed: bool) void {
     const status = if (passed) Color.GREEN ++ "PASS" ++ Color.RESET else Color.RED ++ "FAIL" ++ Color.RESET;
