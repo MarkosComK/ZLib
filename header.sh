@@ -41,7 +41,6 @@ process_file() {
     echo "$HEADER" | \
         sed "s/\[CREATED\]/$created_datetime/" | \
         sed "s/\[UPDATED\]/$current_datetime/" > "$file"
-    echo "" >> "$file"
     
     # Append the rest of the file
     cat "$temp_file" >> "$file"
