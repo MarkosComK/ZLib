@@ -34,7 +34,7 @@ Second - well... its nice to say - Zig - that's it.
 - ✅ `strStr` - Find substring
 
 ### Math Operations
-- ❌ pow - Power function
+- ✅ pow - Power function
 - ❌ sqrt - Square root
 - ❌ abs - Absolute value
 - ❌ factorial - Factorial calculation
