@@ -18,9 +18,20 @@ const testing = std.testing;
 
 test "String Functions tests" {
     var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    defer {
+        const leaked = gpa.deinit() == .leak;
+        if (leaked) {
+            std.debug.print("Memory leaked!\n", .{});
+            std.process.exit(1);
+        }
+    }
     const allocator = gpa.allocator();
     const split: [][]u8 = try zib.str.strSplit(allocator, "--this-is-a-test--", '-');
     for (split, 0..) |word, i| {
         std.debug.print("split {s} i:{d}\n", .{ word, i });
     }
+    for (split) |word| {
+        allocator.free(word);
+    }
+    allocator.free(split);
 }
