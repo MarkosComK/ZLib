@@ -1,4 +1,3 @@
-
 //==============================================================================
 // |‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|
 // |                                                                           |
@@ -12,6 +11,7 @@
 //==============================================================================
 
 const strLen = @import("strLen.zig").strLen;
+const std = @import("std");
 
 //first we need to count words using delimiter
 //remember that we can have spaces before and after string so jump them
@@ -32,23 +32,17 @@ fn countWords(str: []const u8, delimiter: u8) usize {
     return words;
 }
 
-pub fn strSplit(allocator: std.mem.Allocator, str: []const u8, delimiter: u8) ![][]const u8 {
-    if (strLen(str) == 0) return null;
+//pub fn strSplit(allocator: std.mem.Allocator, str: []const u8, delimiter: u8) ![][]const u8 {
+//   if (strLen(str) == 0) return null;
+//
+//   const words: usize = countWords(str, delimiter);
+//   var split: [][]u8 = allocator.alloc([]u8, words);
+//}
 
-    const words: usize = countWords(str, delimiter);
-    var split: [][]u8 = allocator.alloc([]u8, words);
-
-}
-
-const std = struct {
-    mem {
-        allocator {
-            c_malloc{
-
-            }
-            gpa{
-
-            }
-        }
-    }
+pub fn main() !void {
+    //const gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    //const allocator = gpa.allocator();
+    //strSplit(&allocator, "--this-is-a-test--");
+    const string = "this-is----a----test";
+    std.debug.print("words = {d}\n", .{countWords(string, '-')});
 }
