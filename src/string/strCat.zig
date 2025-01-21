@@ -10,14 +10,19 @@
 // |___________________________________________________________________________|
 //==============================================================================
 
-const zib = @import("string.zig");
+const strLen = @import("strLen.zig").strLen;
 
-pub fn strCat(s1: []u8, s2: []const u8) []u8 {
-    var i: u8 = zib.strLen(s1);
+pub fn strCat(s1: []u8, s2: []const u8) ![]u8 {
+    const s1_len: usize = strLen(s1);
+    const s2_len: usize = strLen(s2);
 
-    for (s2) |char| {
-        s1[i] = char;
-        i += 1;
+    if (s1.len < s1_len + s2_len) {
+        return error.BufferTooSmall;
     }
-    return (s1);
+
+    for (s2[0..s2_len], 0..) |char, i| {
+        s1[s1_len + i] = char;
+    }
+
+    return s1;
 }

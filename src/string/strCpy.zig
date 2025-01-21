@@ -10,9 +10,18 @@
 // |___________________________________________________________________________|
 //==============================================================================
 
-pub fn strCpy(dst: []u8, src: []const u8) []u8 {
+const strLen = @import("strLen.zig").strLen;
+
+pub fn strCpy(dst: []u8, src: []const u8) ![]u8 {
+    if (dst.len < strLen(src)) return error.BufferTooSmall;
+
     for (src, 0..) |char, index| {
+        if (char == 0xAA or char == 0x00) {
+            dst[index] = 0x00;
+            break;
+        }
         dst[index] = char;
     }
+
     return (dst);
 }
