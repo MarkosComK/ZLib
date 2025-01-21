@@ -42,15 +42,15 @@ Second - well... its nice to say - Zig - that's it.
 - ✅ `toLower` - Convert to lowercase
 
 ### String Operations
-- ✅ `strLen` - Get string length
-- ✅ `strCpy` - Copy string
-- ✅ `strCat` - Concatenate strings
-- ✅ `strCmp` - Compare strings
-- ✅ `strChr` - Find character in string
-- ✅ `strRChr` - Find character from end of string
-- ✅ `strStr` - Find substring
-- ✅ `strDup` - Duplicate a string
-- ✅ `strSplit` - String split by delimiter
+- ✅ `length` - Get string length
+- ✅ `copy` - Copy string
+- ✅ `concat` - Concatenate strings
+- ✅ `compare` - Compare strings
+- ✅ `find` - Find character in string
+- ✅ `findR` - Find character from end of string
+- ✅ `contains` - Find substring
+- ✅ `duplicate` - Duplicate a string
+- ✅ `split` - String split by delimiter
 
 ### Math Operations
 - ✅ pow - Power function
