@@ -36,7 +36,7 @@ pub fn main() !void {
     std.debug.print("strLen('{s}'): {}\n", .{ str1, zib.str.strLen(str1) });
     _ = zib.str.strCpy(&buffer, str1);
     std.debug.print("strCpy result: '{s}'\n", .{buffer});
-    _ = zib.str.strCat(&buffer, str2);
+    _ = try zib.str.strCat(&buffer, str2);
     std.debug.print("strCat result: '{s}'\n", .{buffer});
     std.debug.print("strCmp('Hello', 'Hello'): {}\n", .{zib.str.strCmp("Hello", "Hello")});
     std.debug.print("strCmp('Hello', 'World'): {}\n", .{zib.str.strCmp("Hello", "World")});
