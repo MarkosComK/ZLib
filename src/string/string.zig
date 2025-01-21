@@ -13,6 +13,12 @@
 //char------------------------------------------------------------------------//
 pub const char = @import("../char/char.zig");
 
+//strError--------------------------------------------------------------------//
+pub const StrError = error{
+    EmptyString,
+    InvalidDelimiter,
+};
+
 //String---------------------------------------------------------------------//
 pub const strLen = @import("strLen.zig").strLen;
 pub const strCpy = @import("strCpy.zig").strCpy;
@@ -22,3 +28,4 @@ pub const strChr = @import("strChr.zig").strChr;
 pub const strRChr = @import("strRChr.zig").strRChr;
 pub const strStr = @import("strStr.zig").strStr;
 pub const strDup = @import("strDup.zig").strDup;
+pub const strSplit = @import("strSplit.zig").strSplit;

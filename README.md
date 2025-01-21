@@ -13,6 +13,7 @@ The goal is to learn the basics of the language while building my own ZLib.
   - [Memory Operations](#memory-operations)
   - [Cast Functions](#cast-functions)
   - [List Operations](#list-operations)
+  - [File Operations](#file-operations)
 - [Docs](#docs)
 - [Building](#building)
 - [Testing](#testing)
@@ -49,6 +50,7 @@ Second - well... its nice to say - Zig - that's it.
 - ✅ `strRChr` - Find character from end of string
 - ✅ `strStr` - Find substring
 - ✅ `strDup` - Duplicate a string
+- ✅ `strSplit` - String split by delimiter
 
 ### Math Operations
 - ✅ pow - Power function
@@ -79,6 +81,10 @@ Second - well... its nice to say - Zig - that's it.
 - ❌ `listAdd` - Add element
 - ❌ `listRemove` - Remove element
 - ❌ `listClear` - Clear list
+
+### File Operations
+- ❌ `getLine` - Get line from a file
+- ❌ `getFile` - Get entire file
 
 ## Docs
 you can visit the docs here, but they're still in progress...
