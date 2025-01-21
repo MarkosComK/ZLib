@@ -10,13 +10,11 @@
 // |___________________________________________________________________________|
 //==============================================================================
 
-const strLen = @import("strLen.zig").strLen;
+const strLen = @import("./strLen.zig").strLen;
+const strDup = @import("./strDup.zig").strDup;
+const StrError = @import("./string.zig").StrError;
 const std = @import("std");
 
-//first we need to count words using delimiter
-//remember that we can have spaces before and after string so jump them
-//
-//"--this-----is-a-split--example-"
 fn countWords(str: []const u8, delimiter: u8) usize {
     var words: usize = 0;
     var in_word: bool = false;
@@ -32,17 +30,34 @@ fn countWords(str: []const u8, delimiter: u8) usize {
     return words;
 }
 
-//pub fn strSplit(allocator: std.mem.Allocator, str: []const u8, delimiter: u8) ![][]const u8 {
-//   if (strLen(str) == 0) return null;
-//
-//   const words: usize = countWords(str, delimiter);
-//   var split: [][]u8 = allocator.alloc([]u8, words);
-//}
+pub fn strSplit(allocator: std.mem.Allocator, str: []const u8, delimiter: u8) ![][]u8 {
+    if (strLen(str) == 0) return StrError.EmptyString;
 
-pub fn main() !void {
-    //const gpa = std.heap.GeneralPurposeAllocator(.{}){};
-    //const allocator = gpa.allocator();
-    //strSplit(&allocator, "--this-is-a-test--");
-    const string = "this-is----a----test";
-    std.debug.print("words = {d}\n", .{countWords(string, '-')});
+    const words: usize = countWords(str, delimiter);
+    const split: [][]u8 = try allocator.alloc([]u8, words);
+    var start: usize = 0;
+    var end: usize = 0;
+    var copy: bool = false;
+    var in_word: bool = false;
+    var word: usize = 0;
+    for (str, 0..) |char, i| {
+        if (char == delimiter) {
+            if (in_word) {
+                end = i;
+                copy = true;
+            }
+            in_word = false;
+        } else if (!in_word) {
+            in_word = true;
+            start = i;
+        }
+        if (copy) {
+            split[word] = try strDup(allocator, str[start..end]);
+            word += 1;
+            start = end + 1;
+            end = start;
+            copy = false;
+        }
+    }
+    return split;
 }
