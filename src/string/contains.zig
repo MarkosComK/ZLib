@@ -10,12 +10,28 @@
 // |___________________________________________________________________________|
 //==============================================================================
 
-pub fn strLen(str: []const u8) usize {
-    var len: usize = 0;
+const length = @import("length.zig").length;
 
-    for (str) |char| {
-        if (char == 0xAA or char == 0x00) break;
-        len += 1;
+pub fn contains(haystack: []const u8, needle: []const u8) ?usize {
+    const nLen: usize = length(needle);
+    const hLen: usize = length(haystack);
+
+    if (nLen == 0) return null;
+    if (nLen >= hLen) return null;
+
+    var i: usize = 0;
+
+    while (i <= hLen - nLen) : (i += 1) {
+        var match: usize = 0;
+        var j: usize = 0;
+
+        while (j < nLen) : (j += 1) {
+            if (haystack[i + j] != needle[j]) {
+                break;
+            }
+            match += 1;
+        }
+        if (match == nLen) return i;
     }
-    return len;
+    return (null);
 }

@@ -3,19 +3,21 @@
 // |                                                                           |
 // | ███████╗██╗██████╗  ────────── ZIB LIBRARY ────────                       |
 // | ╚══███╔╝██║██╔══██╗                                                       |
-// |   ███╔╝ ██║██████╔╝  Created: 2025-01-19 18:25:10                         |
-// |  ███╔╝  ██║██╔══██╗  Last Updated: 2025-01-19 18:25:19                    |
+// |   ███╔╝ ██║██████╔╝  Created: 2025-01-19 12:41:10                         |
+// |  ███╔╝  ██║██╔══██╗  Last Updated: 2025-01-19 13:20:19                    |
 // | ███████╗██║██████╔╝                                                       |
 // | ╚══════╝╚═╝╚═════╝                                                        |
 // |___________________________________________________________________________|
 //==============================================================================
 
-const Allocator = @import("std").mem.Allocator;
-const strLen = @import("../string/strLen.zig").strLen;
-const strCpy = @import("../string/strCpy.zig").strCpy;
+const length = @import("length.zig").length;
 
-pub fn strDup(allocator: Allocator, str: []const u8) ![]u8 {
-    var dup: []u8 = try allocator.alloc(u8, strLen(str));
-    dup = strCpy(dup, str);
-    return dup;
+pub fn compare(s1: []const u8, s2: []const u8) bool {
+    if (length(s1) != length(s2))
+        return false;
+    for (s1, s2) |c1, c2| {
+        if (c1 != c2)
+            return (false);
+    }
+    return (true);
 }

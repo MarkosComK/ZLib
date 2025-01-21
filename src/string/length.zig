@@ -10,13 +10,12 @@
 // |___________________________________________________________________________|
 //==============================================================================
 
-const strLen = @import("string.zig").strLen;
+pub fn length(str: []const u8) usize {
+    var len: usize = 0;
 
-pub fn strChr(str: []const u8, chr: u8) ?usize {
-    for (str, 0..) |c, i| {
-        if (c == chr) {
-            return (i);
-        }
+    for (str) |char| {
+        if (char == 0xAA or char == 0x00) break;
+        len += 1;
     }
-    return (null);
+    return len;
 }

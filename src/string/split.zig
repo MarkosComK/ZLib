@@ -10,10 +10,10 @@
 // |___________________________________________________________________________|
 //==============================================================================
 
-const strLen = @import("./strLen.zig").strLen;
-const strDup = @import("./strDup.zig").strDup;
-const StrError = @import("./string.zig").StrError;
 const std = @import("std");
+const length = @import("./length.zig").length;
+const duplicate = @import("./duplicate.zig").duplicate;
+const Error = @import("./string.zig").Error;
 
 fn countWords(str: []const u8, delimiter: u8) usize {
     var words: usize = 0;
@@ -30,11 +30,11 @@ fn countWords(str: []const u8, delimiter: u8) usize {
     return words;
 }
 
-pub fn strSplit(allocator: std.mem.Allocator, str: []const u8, delimiter: u8) ![][]u8 {
-    if (strLen(str) == 0) return StrError.EmptyString;
+pub fn split(allocator: std.mem.Allocator, str: []const u8, delimiter: u8) ![][]u8 {
+    if (length(str) == 0) return Error.EmptyString;
 
     const words: usize = countWords(str, delimiter);
-    const split: [][]u8 = try allocator.alloc([]u8, words);
+    const res: [][]u8 = try allocator.alloc([]u8, words);
     var start: usize = 0;
     var end: usize = 0;
     var copy: bool = false;
@@ -52,12 +52,12 @@ pub fn strSplit(allocator: std.mem.Allocator, str: []const u8, delimiter: u8) ![
             start = i;
         }
         if (copy) {
-            split[word] = try strDup(allocator, str[start..end]);
+            res[word] = try duplicate(allocator, str[start..end]);
             word += 1;
             start = end + 1;
             end = start;
             copy = false;
         }
     }
-    return split;
+    return res;
 }

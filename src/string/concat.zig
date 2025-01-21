@@ -10,11 +10,11 @@
 // |___________________________________________________________________________|
 //==============================================================================
 
-const strLen = @import("strLen.zig").strLen;
+const length = @import("length.zig").length;
 
-pub fn strCat(s1: []u8, s2: []const u8) ![]u8 {
-    const s1_len: usize = strLen(s1);
-    const s2_len: usize = strLen(s2);
+pub fn concat(s1: []u8, s2: []const u8) ![]u8 {
+    const s1_len: usize = length(s1);
+    const s2_len: usize = length(s2);
 
     if (s1.len < s1_len + s2_len) {
         return error.BufferTooSmall;

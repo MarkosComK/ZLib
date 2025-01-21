@@ -10,18 +10,15 @@
 // |___________________________________________________________________________|
 //==============================================================================
 
-const strLen = @import("strLen.zig").strLen;
+const length = @import("length.zig").length;
 
-pub fn strCpy(dst: []u8, src: []const u8) ![]u8 {
-    if (dst.len < strLen(src)) return error.BufferTooSmall;
+pub fn findR(str: []const u8, chr: u8) ?usize {
+    var i: u8 = length(str) - 1;
 
-    for (src, 0..) |char, index| {
-        if (char == 0xAA or char == 0x00) {
-            dst[index] = 0x00;
-            break;
+    while (i >= 0) : (i -= 1) {
+        if (str[i] == chr) {
+            return (i);
         }
-        dst[index] = char;
     }
-
-    return (dst);
+    return (null);
 }
