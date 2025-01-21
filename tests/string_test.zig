@@ -21,71 +21,83 @@ const expectEqual = testing.expectEqual;
 test "String Function Tests" {
     std.debug.print("\n{s}{s:^60}{s}\n\n", .{ Color.BLUE, "===== String Function Tests =====", Color.RESET });
 
-    // strLen tests
+    // Length Operations
     {
-        const len_t1 = zib.str.length("Hello");
-        const len_t2 = zib.str.length("");
-        const len_t3 = zib.str.length("H");
-        const len_t4 = zib.str.length("Hello\n\t");
+        const len_normal = zib.str.length("Hello");
+        const len_empty = zib.str.length("");
+        const len_single = zib.str.length("H");
+        const len_special = zib.str.length("Hello\n\t");
 
-        printTestResult("{d:^5}", "strLen normal", 5, len_t1, len_t1 == 5);
-        printTestResult("{d:^5}", "strLen empty", 0, len_t2, len_t2 == 0);
-        printTestResult("{d:^5}", "strLen single", 1, len_t3, len_t3 == 1);
-        printTestResult("{d:^5}", "strLen special", 7, len_t4, len_t4 == 7);
+        printTestResult("{any}", "length_basic_string", 5, len_normal, len_normal == 5);
+        printTestResult("{any}", "length_empty_string", 0, len_empty, len_empty == 0);
+        printTestResult("{any}", "length_single_char", 1, len_single, len_single == 1);
+        printTestResult("{any}", "length_with_escapes", 7, len_special, len_special == 7);
 
-        try expectEqual(len_t1, 5);
-        try expectEqual(len_t2, 0);
-        try expectEqual(len_t3, 1);
-        try expectEqual(len_t4, 7);
+        try expectEqual(len_normal, 5);
+        try expectEqual(len_empty, 0);
+        try expectEqual(len_single, 1);
+        try expectEqual(len_special, 7);
     }
 
-    // strCmp tests
+    // Comparison Operations
     {
-        const cmp_t1 = zib.str.compare("Hello", "Hello");
-        const cmp_t2 = zib.str.compare("Hello", "hello");
-        const cmp_t3 = zib.str.compare("", "");
-        const cmp_t4 = zib.str.compare("A", "A");
+        const cmp_identical = zib.str.compare("Hello", "Hello");
+        const cmp_case_sensitive = zib.str.compare("Hello", "hello");
+        const cmp_empty = zib.str.compare("", "");
+        const cmp_single = zib.str.compare("A", "A");
 
-        printTestResult("{:^5}", "strCmp equal", true, cmp_t1, cmp_t1 == true);
-        printTestResult("{:^5}", "strCmp case", false, cmp_t2, cmp_t2 == false);
-        printTestResult("{:^5}", "strCmp empty", true, cmp_t3, cmp_t3 == true);
-        printTestResult("{:^5}", "strCmp single", true, cmp_t4, cmp_t4 == true);
+        printTestResult("{any:^14}", "compare_identical_strings", true, cmp_identical, cmp_identical);
+        printTestResult("{any:^14}", "compare_case_sensitive", false, cmp_case_sensitive, !cmp_case_sensitive);
+        printTestResult("{any:^14}", "compare_empty_strings", true, cmp_empty, cmp_empty);
+        printTestResult("{any:^14}", "compare_single_char", true, cmp_single, cmp_single);
 
-        try expect(cmp_t1);
-        try expect(!cmp_t2);
-        try expect(cmp_t3);
-        try expect(cmp_t4);
+        try expect(cmp_identical);
+        try expect(!cmp_case_sensitive);
+        try expect(cmp_empty);
+        try expect(cmp_single);
     }
 
-    // strCpy tests
+    // Copy Operations
     {
-        var buffer1: [10]u8 = undefined;
-        var buffer2: [1]u8 = undefined;
-        _ = try zib.str.copy(&buffer1, "Hello");
-        _ = try zib.str.copy(&buffer2, "A");
+        var normal_buffer: [10]u8 = undefined;
+        var single_buffer: [1]u8 = undefined;
+        var empty_buffer: [1]u8 = undefined;
 
-        printTestResult("{s:^5}", "strCpy normal", "Hello", buffer1[0..5], std.mem.eql(u8, buffer1[0..5], "Hello"));
-        printTestResult("{s:^5}", "strCpy single", "A", buffer2[0..1], std.mem.eql(u8, buffer2[0..1], "A"));
+        _ = try zib.str.copy(&normal_buffer, "Hello");
+        _ = try zib.str.copy(&single_buffer, "A");
+        _ = try zib.str.copy(&empty_buffer, "");
 
-        try expect(std.mem.eql(u8, buffer1[0..5], "Hello"));
-        try expect(std.mem.eql(u8, buffer2[0..1], "A"));
+        printTestResult("{s:^14}", "copy_basic_string", "Hello", normal_buffer[0..5], std.mem.eql(u8, normal_buffer[0..5], "Hello"));
+        printTestResult("{s:^14}", "copy_single_char", "A", single_buffer[0..1], std.mem.eql(u8, single_buffer[0..1], "A"));
+        printTestResult("{s:^14}", "copy_empty_string", "", empty_buffer[0..0], std.mem.eql(u8, empty_buffer[0..0], ""));
+
+        try expect(std.mem.eql(u8, normal_buffer[0..5], "Hello"));
+        try expect(std.mem.eql(u8, single_buffer[0..1], "A"));
+        try expect(std.mem.eql(u8, empty_buffer[0..0], ""));
     }
 
-    // strCat tests
+    // Concatenation Operations
     {
-        var buffer: [20]u8 = [_]u8{0} ** 20;
-        var short_buf: [5]u8 = [_]u8{0} ** 5;
+        var normal_buffer: [20]u8 = [_]u8{0} ** 20;
+        var exact_buffer: [10]u8 = [_]u8{0} ** 10;
+        var small_buffer: [5]u8 = [_]u8{0} ** 5;
 
-        // Fill initial content
-        const hello = "Hello";
-        _ = try zib.str.copy(buffer[0..5], hello);
+        // Basic concatenation
+        _ = try zib.str.copy(&normal_buffer, "Hello");
+        _ = try zib.str.concat(normal_buffer[0..20], " World");
+        printTestResult("{s:^14}", "concat_basic_strings", "Hello World", normal_buffer[0..11], std.mem.eql(u8, normal_buffer[0..11], "Hello World"));
 
-        // Test normal concatenation
-        _ = try zib.str.concat(buffer[0..20], " World");
-        try std.testing.expectEqualSlices(u8, "Hello World", buffer[0..11]);
+        // Exact size buffer
+        _ = try zib.str.copy(&exact_buffer, "Hi");
+        _ = try zib.str.concat(exact_buffer[0..], " Test");
+        printTestResult("{s:^14}", "concat_exact_buffer", "Hi Test", exact_buffer[0..7], std.mem.eql(u8, exact_buffer[0..7], "Hi Test"));
 
-        // Test error case with small buffer
-        const result_error = zib.str.concat(short_buf[0..], " World");
-        try std.testing.expectError(error.BufferTooSmall, result_error);
+        // Error case with small buffer
+        _ = try zib.str.copy(&small_buffer, "Hi");
+        const concat_error = zib.str.concat(small_buffer[0..], " World");
+        printTestResult("{any:^14}", "concat_buffer_too_small", error.BufferTooSmall, concat_error, concat_error == error.BufferTooSmall);
+
+        try std.testing.expectEqualSlices(u8, "Hello World", normal_buffer[0..11]);
+        try std.testing.expectError(error.BufferTooSmall, concat_error);
     }
 }
