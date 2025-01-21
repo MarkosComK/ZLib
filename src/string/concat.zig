@@ -10,9 +10,19 @@
 // |___________________________________________________________________________|
 //==============================================================================
 
-pub fn strCpy(dst: []u8, src: []const u8) []u8 {
-    for (src, 0..) |char, index| {
-        dst[index] = char;
+const length = @import("length.zig").length;
+
+pub fn concat(s1: []u8, s2: []const u8) ![]u8 {
+    const s1_len: usize = length(s1);
+    const s2_len: usize = length(s2);
+
+    if (s1.len < s1_len + s2_len) {
+        return error.BufferTooSmall;
     }
-    return (dst);
+
+    for (s2[0..s2_len], 0..) |char, i| {
+        s1[s1_len + i] = char;
+    }
+
+    return s1;
 }

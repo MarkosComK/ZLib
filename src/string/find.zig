@@ -10,14 +10,12 @@
 // |___________________________________________________________________________|
 //==============================================================================
 
-const zib = @import("string.zig");
-
-pub fn strCmp(s1: []const u8, s2: []const u8) bool {
-    if (zib.strLen(s1) != zib.strLen(s2))
-        return false;
-    for (s1, s2) |c1, c2| {
-        if (c1 != c2)
-            return (false);
+pub fn find(str: []const u8, chr: u8) ?usize {
+    for (str, 0..) |c, i| {
+        if (c == 0xAA or c == 0x00) break;
+        if (c == chr) {
+            return (i);
+        }
     }
-    return (true);
+    return (null);
 }

@@ -10,14 +10,15 @@
 // |___________________________________________________________________________|
 //==============================================================================
 
-const zib = @import("string.zig").char;
+const length = @import("length.zig").length;
 
-pub fn strLen(str: []const u8) u8 {
-    var len: u8 = 0;
+pub fn findR(str: []const u8, chr: u8) ?usize {
+    var i: u8 = length(str) - 1;
 
-    for (str) |char| {
-        if (zib.isPrint(char))
-            len += 1;
+    while (i >= 0) : (i -= 1) {
+        if (str[i] == chr) {
+            return (i);
+        }
     }
-    return (len);
+    return (null);
 }
