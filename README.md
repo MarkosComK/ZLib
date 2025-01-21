@@ -50,7 +50,7 @@ Second - well... its nice to say - Zig - that's it.
 - ✅ `strRChr` - Find character from end of string
 - ✅ `strStr` - Find substring
 - ✅ `strDup` - Duplicate a string
-- ❌ `strSplit` - String split by delimiter
+- ✅ `strSplit` - String split by delimiter
 
 ### Math Operations
 - ✅ pow - Power function
