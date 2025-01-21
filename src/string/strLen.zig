@@ -10,14 +10,12 @@
 // |___________________________________________________________________________|
 //==============================================================================
 
-const zib = @import("string.zig").char;
-
-pub fn strLen(str: []const u8) u8 {
-    var len: u8 = 0;
+pub fn strLen(str: []const u8) usize {
+    var len: usize = 0;
 
     for (str) |char| {
-        if (zib.isPrint(char))
-            len += 1;
+        if (char == 0xAA or char == 0x00) break;
+        len += 1;
     }
-    return (len);
+    return len;
 }

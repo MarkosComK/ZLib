@@ -17,6 +17,7 @@ pub const char = @import("../char/char.zig");
 pub const StrError = error{
     EmptyString,
     InvalidDelimiter,
+    BufferTooSmall,
 };
 
 //String---------------------------------------------------------------------//
