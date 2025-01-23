@@ -6,10 +6,10 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass scss/main.scss css/main.css --watch",
-	"serve": "browser-sync start --server --files 'css/*.css, *.html, *.js, docs/*.md'",
-    "dev": "concurrently \"npm run sass\" \"npm run serve\""
+    "sass": "sass scss:css --style=expanded --watch --no-source-map",
+    "serve": "browser-sync start --server --files 'css/*.css, *.html, *.js, docs/*.md' --no-notify",
+    "dev": "concurrently \"npm run sass\" \"npm run serve\"",
+    "build": "sass scss:css --style=compressed"
   },
   "repository": {
     "type": "git",
