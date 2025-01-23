@@ -23,11 +23,11 @@ if ! command_exists npm; then
     exit 1
 fi
 
-# Check if Sass is installed
-if ! command_exists sass; then
-    echo -e "${RED}Error: Sass is not installed${NC}"
-    echo "Please install Sass globally with 'npm install -g sass'"
-    exit 1
+# Check if nodemon is installed (for better watching)
+if ! command_exists nodemon; then
+    echo -e "${YELLOW}Warning: nodemon is not installed${NC}"
+    echo "Installing nodemon..."
+    npm install -g nodemon
 fi
 
 # Check if http-server is installed
@@ -55,22 +55,31 @@ cleanup() {
 # Set up trap to catch script termination
 trap cleanup SIGINT SIGTERM
 
-# Start sass in watch mode
+# Start sass in watch mode with verbose output
 echo -e "${GREEN}Starting Sass compiler in watch mode...${NC}"
-npm run sass -- --watch &
+sass --watch scss:css --style=expanded --no-source-map --update --poll &
 SASS_PID=$!
+
+# Print the PID for sass watcher
+echo -e "${YELLOW}Sass watcher PID: $SASS_PID${NC}"
 
 # Start Node.js server (http-server)
 echo -e "${GREEN}Starting local server...${NC}"
-http-server -p 8000 &
+http-server -p 8000 --cors &
 SERVER_PID=$!
 
 # Print success message with URLs
 echo -e "\n${GREEN}Development servers started successfully!${NC}"
 echo -e "Local server: ${YELLOW}http://localhost:8000${NC}"
-echo -e "Sass will be compiled automatically on changes."
+echo -e "Sass is watching for changes in the scss directory"
 echo -e "\nPress Ctrl+C to stop all servers\n"
 
-# Wait for both background processes
-wait $SASS_PID $SERVER_PID
-
+# Monitor sass compilation
+while true; do
+    if ! kill -0 $SASS_PID 2>/dev/null; then
+        echo -e "${RED}Sass watcher died, restarting...${NC}"
+        sass --watch scss:css --style=expanded --no-source-map --update --poll &
+        SASS_PID=$!
+    fi
+    sleep 5
+done
