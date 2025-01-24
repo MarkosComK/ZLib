@@ -1,25 +1,15 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-.sidebar::before {
-    position: absolute;
-    z-index: -2;
-    left: -10px;
-	width: 380px;
-    height: 96%;
-    content: "";
-}
-
 .sidebar {
     position: fixed;
     top: 0;
     left: -20px;
-	width: 340px;
+    width: 340px;
     height: 96%;
-	margin: 1rem;
-	padding: 1rem;
+    margin: 1rem;
+    padding: 1rem;
     transition: all 0.3s ease-out;
-    /* From https://css.glass */
     background: rgba(255, 255, 255, 0.14);
     border-radius: 8px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -27,30 +17,87 @@
     -webkit-backdrop-filter: blur(13.7px);
     border: 1px solid rgba(255, 255, 255, 0.5);
 
-	a {
-		display: block;
-		padding: 0.75rem 1rem;
-		color: #333;
-		text-decoration: none;
-		border-radius: 0.25rem;
-		transition: background-color 0.2s ease;
-		
-		&:hover {
-			background-color: rgba(0, 0, 0, 0.05);
-		}
-		
-		&.active {
-			background-color: #007bff;
-			color: white;
-			
-			&:hover {
-				background-color: #007bff;
-			}
-		}
-	}
+    &::before {
+        position: absolute;
+        z-index: -2;
+        left: -10px;
+        width: 380px;
+        height: 96%;
+        content: "";
+    }
 
-	// Add spacing between navigation items
-	a + a {
-		margin-top: 0.5rem;
-	}
+    .nav-item {
+        position: relative;
+        margin: 0.5rem 0;
+
+        a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #333;
+            text-decoration: none;
+            border-radius: 0.25rem;
+            transition: background-color 0.2s ease;
+            
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+            
+            &.active {
+                background-color: #007bff;
+                color: white;
+                
+                &:hover {
+                    background-color: #007bff;
+                }
+            }
+        }
+
+        .toggle-btn {
+            position: absolute;
+            right: 0.5rem;
+            top: 0.75rem;  // Align with the first line
+            background: none;
+            border: none;
+            font-size: 0.8rem;
+            cursor: pointer;
+            padding: 0.2rem;
+            color: #666;
+            z-index: 2;
+
+            &:hover {
+                color: #007bff;
+            }
+        }
+
+        .nav-children {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding-left: 1rem;
+
+            &.expanded {
+                max-height: 500px;
+            }
+
+            .nav-item {
+                margin: 8px 0 0 0;
+                
+                a {
+                    font-size: 0.9em;
+                    padding: 0.5rem 1rem;
+                }
+
+                // Remove margin between nested items while keeping margin for root items
+                & + .nav-item {
+                  margin: 8px 0 0 0;
+                }
+            }
+        }
+
+        // Add spacing between root-level navigation items only
+        &.root-item + &.root-item {
+            margin-top: 0.5rem;
+        }
+    }
 }
+
