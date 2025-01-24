@@ -1,11 +1,31 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-.sidebar {
+.sidebar::before {
+    position: absolute;
+    z-index: -2;
+    left: -10px;
 	width: 380px;
-    height: 100svh;
-	border: 1px solid red;
+    height: 96%;
+    content: "";
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -20px;
+	width: 340px;
+    height: 96%;
+	margin: 1rem;
 	padding: 1rem;
+    transition: all 0.3s ease-out;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.7px);
+    -webkit-backdrop-filter: blur(13.7px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 
 	a {
 		display: block;
