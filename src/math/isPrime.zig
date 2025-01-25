@@ -3,16 +3,25 @@
 // |                                                                           |
 // | ███████╗██╗██████╗  ────────── ZIB LIBRARY ────────                       |
 // | ╚══███╔╝██║██╔══██╗                                                       |
-// |   ███╔╝ ██║██████╔╝  Created: 2025-01-19 12:41:10                         |
-// |  ███╔╝  ██║██╔══██╗  Last Updated: 2025-01-19 15:03:15                    |
+// |   ███╔╝ ██║██████╔╝  Created: 2025-01-25 13:36:28                         |
+// |  ███╔╝  ██║██╔══██╗  Last Updated: 2025-01-25 15:03:15                    |
 // | ███████╗██║██████╔╝                                                       |
 // | ╚══════╝╚═╝╚═════╝                                                        |
 // |___________________________________________________________________________|
 //==============================================================================
 
-pub const pow = @import("pow.zig").pow;
-pub const sqrt = @import("sqrt.zig").sqrt;
-pub const abs = @import("abs.zig").abs;
-pub const fact = @import("fact.zig").fact;
-pub const fibo = @import("fibo.zig").fibo;
-pub const isPrime = @import("isPrime.zig").isPrime;
+const std = @import("std");
+
+pub fn isPrime(nbr: u32) bool {
+    if (nbr <= 1) return false;
+    if (nbr == 2) return true;
+    if (nbr % 2 == 0) return false;
+
+    var div: usize = 2;
+
+    while (div < nbr) : (div += 1) {
+        if (nbr % div == 0)
+            return false;
+    }
+    return true;
+}
