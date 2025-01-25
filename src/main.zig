@@ -34,7 +34,7 @@ pub fn main() !void {
     var buffer: [20]u8 = undefined;
     std.debug.print("String Operations Tests:\n", .{});
     std.debug.print("strLen('{s}'): {}\n", .{ str1, zib.str.length(str1) });
-    _ = zib.str.copy(&buffer, str1);
+    _ = try zib.str.copy(&buffer, str1);
     std.debug.print("strCpy result: '{s}'\n", .{buffer});
     _ = try zib.str.concat(&buffer, str2);
     std.debug.print("strCat result: '{s}'\n", .{buffer});

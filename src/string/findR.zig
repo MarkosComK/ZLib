@@ -13,7 +13,7 @@
 const length = @import("length.zig").length;
 
 pub fn findR(str: []const u8, chr: u8) ?usize {
-    var i: u8 = length(str) - 1;
+    var i: usize = length(str) - 1;
 
     while (i >= 0) : (i -= 1) {
         if (str[i] == chr) {
