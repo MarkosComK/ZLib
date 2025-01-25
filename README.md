@@ -59,7 +59,7 @@ Second - well... its nice to say - Zig - that's it.
 - ✅ fact - Factorial calculation
 - ✅ fibo - Fibonacci sequence
 - ❌ gcd - Greatest common divisor
-- ❌ isPrime - Prime number check
+- ✅ isPrime - Prime number check
 - ❌ nextPrime - Find next prime
 - ❌ primeFactors - Prime factorization
 - ❌ lcm - Least common multiple
