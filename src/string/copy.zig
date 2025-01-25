@@ -11,8 +11,9 @@
 //==============================================================================
 
 const length = @import("length.zig").length;
+const Error = @import("string.zig").Error;
 
-pub fn copy(dst: []u8, src: []const u8) ![]u8 {
+pub fn copy(dst: []u8, src: []const u8) Error![]u8 {
     if (dst.len < length(src)) return error.BufferTooSmall;
 
     for (src, 0..) |char, index| {

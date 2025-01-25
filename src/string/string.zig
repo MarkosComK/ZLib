@@ -18,6 +18,7 @@ pub const Error = error{
     EmptyString,
     InvalidDelimiter,
     BufferTooSmall,
+    OutOfMemory,
 };
 
 //String---------------------------------------------------------------------//
