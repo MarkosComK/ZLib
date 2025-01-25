@@ -51,4 +51,14 @@ test "Math Function Tests" {
 
     try testing.expectEqual(abs_test1, 42);
     try testing.expectEqual(abs_test2, 42);
+
+    // isPrime value tests
+    const isPrime_t1 = zib.math.isPrime(7);
+    const isPrime_t2 = zib.math.isPrime(12);
+
+    printTestResult("{:^5}", "isPrime(7)", 7, isPrime_t1, isPrime_t1 == true);
+    printTestResult("{:^5}", "isPrime(12)", 12, isPrime_t2, isPrime_t2 == false);
+
+    try testing.expectEqual(isPrime_t1, true);
+    try testing.expectEqual(isPrime_t2, false);
 }
