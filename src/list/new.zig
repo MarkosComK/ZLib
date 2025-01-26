@@ -3,16 +3,22 @@
 // |                                                                           |
 // | ███████╗██╗██████╗  ────────── ZIB LIBRARY ────────                       |
 // | ╚══███╔╝██║██╔══██╗                                                       |
-// |   ███╔╝ ██║██████╔╝  Created: 2025-01-19 12:41:02                         |
-// |  ███╔╝  ██║██╔══██╗  Last Updated: 2025-01-19 13:20:10                    |
+// |   ███╔╝ ██║██████╔╝  Created: 2025-01-25 19:30:10                         |
+// |  ███╔╝  ██║██╔══██╗  Last Updated: 2025-01-25 13:31:19                    |
 // | ███████╗██║██████╔╝                                                       |
 // | ╚══════╝╚═╝╚═════╝                                                        |
 // |___________________________________________________________________________|
 //==============================================================================
 
-//zlib.zig---------------------------------------------------------------------//
-pub const char = @import("char/char.zig");
-pub const str = @import("string/string.zig");
-pub const math = @import("math/math.zig");
-pub const cast = @import("cast/cast.zig");
-pub const list = @import("list/list.zig");
+const Node = @import("./list.zig").Node;
+const Error = @import("./list.zig").Error;
+const std = @import("std");
+
+pub fn new(comptime T: type, allocator: std.mem.Allocator, data: T) Error!*Node(T) {
+    const node: *Node(T) = try allocator.create(Node(T));
+    node.* = .{
+        .next = null,
+        .data = data,
+    };
+    return node;
+}
