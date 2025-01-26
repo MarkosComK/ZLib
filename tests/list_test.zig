@@ -29,6 +29,13 @@ test "Lists Function Tests" {
         const node2 = try zib.list.new([]const u8, allocator, "Node2");
         const node3 = try zib.list.new([]const u8, allocator, "Node3");
 
+        defer {
+            allocator.destroy(node3);
+            allocator.destroy(node1); //free order doesn't matter
+            allocator.destroy(node2);
+            if (gpa.deinit() == .leak) std.debug.print("List: LEAKS!!\n", .{});
+        }
+
         printTestResult("{s}", "new([]const u8, alloc, 'Node1')", "Node1", node1.data, zib.str.compare("Node1", node1.data) == true);
         printTestResult("{s}", "new([]const u8, alloc, 'Node2')", "Node2", node2.data, zib.str.compare("Node2", node2.data) == true);
         printTestResult("{s}", "new([]const u8, alloc, 'Node3')", "Node3", node3.data, zib.str.compare("Node3", node3.data) == true);
