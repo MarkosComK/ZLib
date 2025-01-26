@@ -32,37 +32,37 @@ Second - well... its nice to say - Zig - that's it.
 🚧 = In progress
 
 ### Character Functions
-- ✅ `isAlpha` - Check if character is alphabetic
-- ✅ `isDigit` - Check if character is a digit
-- ✅ `isAlNum` - Check if character is alphanumeric
-- ✅ `isAscii` - Check if character is ASCII
-- ✅ `isSpace` - Check if character is space
-- ✅ `isPrint` - Check if character is printable
-- ✅ `toUpper` - Convert to uppercase
-- ✅ `toLower` - Convert to lowercase
+- ✅ `char.isAlpha` - Check if character is alphabetic
+- ✅ `char.isDigit` - Check if character is a digit
+- ✅ `char.isAlNum` - Check if character is alphanumeric
+- ✅ `char.isAscii` - Check if character is ASCII
+- ✅ `char.isSpace` - Check if character is space
+- ✅ `char.isPrint` - Check if character is printable
+- ✅ `char.toUpper` - Convert to uppercase
+- ✅ `char.toLower` - Convert to lowercase
 
 ### String Operations
-- ✅ `length` - Get string length
-- ✅ `copy` - Copy string
-- ✅ `concat` - Concatenate strings
-- ✅ `compare` - Compare strings
-- ✅ `find` - Find character in string
-- ✅ `findR` - Find character from end of string
-- ✅ `contains` - Find substring
-- ✅ `duplicate` - Duplicate a string
-- ✅ `split` - String split by delimiter
+- ✅ `str.length` - Get string length
+- ✅ `str.copy` - Copy string
+- ✅ `str.concat` - Concatenate strings
+- ✅ `str.compare` - Compare strings
+- ✅ `str.find` - Find character in string
+- ✅ `str.findR` - Find character from end of string
+- ✅ `str.contains` - Find substring
+- ✅ `str.duplicate` - Duplicate a string
+- ✅ `str.split` - String split by delimiter
 
 ### Math Operations
-- ✅ pow - Power function
-- ❌ sqrt - Square root
-- ✅ abs - Absolute value
-- ✅ fact - Factorial calculation
-- ✅ fibo - Fibonacci sequence
-- ❌ gcd - Greatest common divisor
-- ✅ isPrime - Prime number check
-- ❌ nextPrime - Find next prime
-- ❌ primeFactors - Prime factorization
-- ❌ lcm - Least common multiple
+- ✅ `math.pow` - Power function
+- ❌ `math.sqrt` - Square root
+- ✅ `math.abs` - Absolute value
+- ✅ `math.fact` - Factorial calculation
+- ✅ `math.fibo` - Fibonacci sequence
+- ❌ `math.gcd` - Greatest common divisor
+- ✅ `math.isPrime` - Prime number check
+- ❌ `math.nextPrime` - Find next prime
+- ❌ `math.primeFactors` - Prime factorization
+- ❌ `math.lcm` - Least common multiple
 
 ### Memory Operations
 - ❌ `memSet` - Fill memory
@@ -72,15 +72,16 @@ Second - well... its nice to say - Zig - that's it.
 - ❌ `memChr` - Find byte in memory
 
 ### Cast Functions
-- ✅ `atoi` - Convert ASCII to integer
-- ❌ `itoa` - Convert integer to ASCII
+- ✅ `cast.atoi` - Convert ASCII to integer
+- ❌ `cast.itoa` - Convert integer to ASCII
 
 ### List Operations
-- ❌ `List` - Generic list implementation
-- ❌ `listNew` - Create new list
-- ❌ `listAdd` - Add element
-- ❌ `listRemove` - Remove element
-- ❌ `listClear` - Clear list
+- ❌ `list` - Generic list implementation
+- ❌ `list.new` - Create new list
+- ❌ `list.size` - Create new list
+- ❌ `list.add` - Add element
+- ❌ `list.remove` - Remove element
+- ❌ `list.clear` - Clear list
 
 ### File Operations
 - ❌ `getLine` - Get line from a file
