@@ -43,14 +43,18 @@ test "Lists Function Tests" {
         // Point each node to next
         node1.next = node2;
         node2.next = node3;
-        var current: *zib.list.Node([]const u8) = node1;
+        std.debug.print("\nLets print the list content \n", .{});
+        var current: ?*zib.list.Node([]const u8) = node1;
         var i: usize = 0;
-        while (true) {
-            std.debug.print("Node{d}.data: {s}\n", .{ i, current.data });
-            if (current.next == null) break;
-            current = current.next.?;
+
+        while (current) |node| {
+            std.debug.print("Node{d}.data: {s}\n", .{ i, node.data });
+            if (current == null) break;
+            current = node.next;
             i += 1;
         }
+
+        std.debug.print("listSize: {any}\n", .{zib.list.size([]const u8, node1)});
 
         try expectEqual(node1.data, "Node1");
         try expectEqual(node2.data, "Node2");

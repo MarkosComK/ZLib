@@ -3,26 +3,25 @@
 // |                                                                           |
 // | ███████╗██╗██████╗  ────────── ZIB LIBRARY ────────                       |
 // | ╚══███╔╝██║██╔══██╗                                                       |
-// |   ███╔╝ ██║██████╔╝  Created: 2025-01-25 19:29:10                         |
-// |  ███╔╝  ██║██╔══██╗  Last Updated: 2025-01-25 13:29:19                    |
+// |   ███╔╝ ██║██████╔╝  Created: 2025-01-26 12:29:10                         |
+// |  ███╔╝  ██║██╔══██╗  Last Updated: 2025-06-25 12:29:19                    |
 // | ███████╗██║██████╔╝                                                       |
 // | ╚══════╝╚═╝╚═════╝                                                        |
 // |___________________________________________________________________________|
 //==============================================================================
 
-//List------------------------------------------------------------------------//
+const Error = @import("./list.zig").Error;
+const Node = @import("./list.zig").Node;
 
-pub const Error = error{
-    OutOfMemory,
-    InvalidNode,
-};
+pub fn size(comptime T: type, list: ?*Node(T)) Error!usize {
+    if (list == null) return Error.InvalidNode;
 
-pub fn Node(comptime T: type) type {
-    return struct {
-        next: ?*@This(),
-        data: T,
-    };
+    var i: usize = 0;
+    var current: ?*Node(T) = list;
+
+    while (current) |node| {
+        current = node.next;
+        i += 1;
+    }
+    return i;
 }
-
-pub const new = @import("new.zig").new;
-pub const size = @import("size.zig").size;
