@@ -25,9 +25,9 @@ test "Lists Function Tests" {
 
     // List New
     {
-        const node1 = try zib.list.new([]const u8, allocator, "Node1");
-        const node2 = try zib.list.new([]const u8, allocator, "Node2");
-        const node3 = try zib.list.new([]const u8, allocator, "Node3");
+        const node1 = try zib.list.new(allocator, []const u8, "Node1");
+        const node2 = try zib.list.new(allocator, []const u8, "Node2");
+        const node3 = try zib.list.new(allocator, []const u8, "Node3");
 
         defer {
             allocator.destroy(node3);

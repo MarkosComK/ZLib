@@ -14,7 +14,7 @@ const Node = @import("./list.zig").Node;
 const Error = @import("./list.zig").Error;
 const std = @import("std");
 
-pub fn new(comptime T: type, allocator: std.mem.Allocator, data: T) Error!*Node(T) {
+pub fn new(allocator: std.mem.Allocator, comptime T: type, data: T) Error!*Node(T) {
     const node: *Node(T) = try allocator.create(Node(T));
     node.* = .{
         .next = null,
