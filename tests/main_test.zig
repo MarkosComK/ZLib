@@ -33,4 +33,5 @@ comptime {
     _ = @import("math_test.zig");
     _ = @import("string_test.zig");
     _ = @import("cast_test.zig");
+    _ = @import("list_test.zig");
 }
